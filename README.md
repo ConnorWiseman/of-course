@@ -32,7 +32,7 @@ const prompt = require('of-course');
 ### &#35;string
 Prompts for a string.
 ```javascript
-prompt.string('Username: ').then((username) {
+prompt.string('Username: ').then((username) => {
   console.log(username);
 });
 ```
@@ -40,7 +40,7 @@ prompt.string('Username: ').then((username) {
 ### &#35;password
 Prompts for a string, obscuring input.
 ```javascript
-prompt.password('Password: ').then((password) {
+prompt.password('Password: ').then((password) => {
   console.log(password);
 });
 ```
