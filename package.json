@@ -1,0 +1,42 @@
+{
+  "name": "of-course",
+  "version": "0.0.0",
+  "description": "Promise-based input prompting in the terminal.",
+  "author": "ConnorWiseman",
+  "contributors": [
+    {
+      "name": "Connor Wiseman",
+      "url": "https://github.com/ConnorWiseman/"
+    }
+  ],
+  "homepage": "https://github.com/ConnorWiseman/of-course#readme",
+  "keywords": [
+    "prompt"
+  ],
+  "files": [
+    "lib/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConnorWiseman/of-course.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ConnorWiseman/of-course/issues"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "coverage": "codecov",
+    "lint": "eslint lib/",
+    "test": "cross-env NODE_ENV=test nyc mocha test/**/*.spec.js"
+  },
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "dependencies": {
+    "eol": "^0.9.1",
+    "readline": "^1.3.0",
+    "stream": "0.0.2"
+  },
+  "devDependencies": {}
+}
