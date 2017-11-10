@@ -16,8 +16,8 @@ chai.use(chaiAsPromised);
 chai.use(sinonChai);
 
 
-const promptStub       = sinon.stub().returns(Promise.resolve());
-const promptSilentStub = sinon.stub().returns(Promise.resolve());
+const promptStub       = sinon.stub().returns(Promise.resolve('string'));
+const promptSilentStub = sinon.stub().returns(Promise.resolve('string'));
 
 
 const prompt = proxyquire('../../lib', {
@@ -40,6 +40,10 @@ describe('lib/index.js', () => {
     it('should return a Promise', () => {
       prompt.string('').should.be.a('Promise');
     });
+
+    it('should eventually resolve to a string', () => {
+      prompt.string('').should.eventually.be.a.string;
+    });
   });
 
   describe('#password', () => {
@@ -50,6 +54,10 @@ describe('lib/index.js', () => {
 
     it('should return a Promise', () => {
       prompt.password('').should.be.a('Promise');
+    });
+
+    it('should eventually resolve to a string', () => {
+      prompt.password('').should.eventually.be.a.string;
     });
   });
 });
