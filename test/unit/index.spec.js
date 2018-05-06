@@ -9,11 +9,8 @@ const chaiAsPromised = require('chai-as-promised');
 const proxyquire     = require('proxyquire');
 const should         = chai.should();
 const sinon          = require('sinon');
-const sinonChai      = require('sinon-chai');
-
 
 chai.use(chaiAsPromised);
-chai.use(sinonChai);
 
 
 const promptStub       = sinon.stub().returns(Promise.resolve('string'));

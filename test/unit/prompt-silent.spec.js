@@ -9,11 +9,9 @@ const chaiAsPromised = require('chai-as-promised');
 const proxyquire     = require('proxyquire');
 const should         = chai.should();
 const sinon          = require('sinon');
-const sinonChai      = require('sinon-chai');
 
 
 chai.use(chaiAsPromised);
-chai.use(sinonChai);
 
 
 const readlineStubs = {
@@ -40,7 +38,7 @@ describe('lib/prompt-silent.js', () => {
     sinon.spy(readlineStubs, 'createInterface');
 
     promptSilent('string', (response) => {
-      readlineStubs.createInterface.should.have.been.calledOnce;
+      should.equal(readlineStubs.createInterface.callCount, 1);
       readlineStubs.createInterface.restore();
       done();
     });
@@ -51,8 +49,7 @@ describe('lib/prompt-silent.js', () => {
     sinon.spy(readlineStubs, 'question');
 
     promptSilent('string', (response) => {
-      readlineStubs.createInterface.should.have.been.calledBefore(readlineStubs.question);
-      readlineStubs.question.should.have.been.calledOnce;
+      should.equal(readlineStubs.question.callCount, 1);
       readlineStubs.createInterface.restore();
       readlineStubs.question.restore();
       done();
@@ -64,8 +61,7 @@ describe('lib/prompt-silent.js', () => {
     sinon.spy(readlineStubs, 'close');
 
     promptSilent('string', (response) => {
-      readlineStubs.question.should.have.been.calledBefore(readlineStubs.close);
-      readlineStubs.close.should.have.been.calledOnce;
+      should.equal(readlineStubs.close.callCount, 1);
       readlineStubs.question.restore();
       readlineStubs.close.restore();
       done();
